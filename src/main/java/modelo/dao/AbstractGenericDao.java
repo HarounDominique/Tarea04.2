@@ -23,7 +23,4 @@ public abstract class AbstractGenericDao<E> implements IGenericDao<E>{
     public String getEntityClass() {
                 return entityClass;
     }
-    
-    
-    
 }

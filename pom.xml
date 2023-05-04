@@ -18,5 +18,10 @@
 			<artifactId>org.neodatis.odb-all</artifactId>
 			<version>1.9.30.687.w1</version>
 		</dependency>
+		<dependency>
+			<groupId>es.teis.oracle</groupId>
+			<artifactId>oracle_connector</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
