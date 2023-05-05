@@ -224,6 +224,7 @@ public class DeptWindow extends JFrame {
 	}
 
 	private void showDialog() {
+		ServicioDepartamento sd = new ServicioDepartamento();
 		createDialog.setVisible(true);
 		Departamento departamentoACrear = createDialog.getResult();
 		if (departamentoACrear != null) {
@@ -233,12 +234,28 @@ public class DeptWindow extends JFrame {
 				// métodos del servicio create o update en función de si se ha creado o editado
 				// el departamento.
 				// CREAR
+				try {
+					sd.create(departamentoACrear);
+					addMensaje(false, "El departamento se ha creado correctamente");
+				} catch (DuplicateInstanceException e) {
+					e.printStackTrace();
+					addMensaje(false, "Ya existe un departamento con ese ID. No se ha podido crear.");
+				}catch(Exception e) {
+					addMensaje(false, "Ha ocurrido un error y no se ha podido crear el departamento.");
+				}
 			} else if (createDialog.getTipo() == TIPO_EDICION.EDITAR) {
 				// TO DO
 				// Completa el método showDialog de DeptWindow.java para que llame a los métodos
 				// del servicio create o update en función de si se ha creado o editado el
 				// departamento.
 				// UPDATE
+				try {
+				sd.update(departamentoACrear);
+				addMensaje(false, "El departamento se ha actualizado correctamente");
+				}catch(Exception e){
+					e.printStackTrace();
+					addMensaje(false, "El departamento NO se ha actualizado correctamente");
+				}
 			}
 
 			getAllDepartamentos();

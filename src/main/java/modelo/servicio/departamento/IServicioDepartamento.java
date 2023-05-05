@@ -16,8 +16,6 @@ public interface IServicioDepartamento {
 
 	public List<Departamento> findAll();
 
-	public List<Departamento> findByJob(String string);
-
 	public boolean exists(Integer deptno);
 
 }
